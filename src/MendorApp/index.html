@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="scripts/jquery-1.8.3.js"></script>
+		<script src="scripts/jquery.mobile-1.2.0.js"></script>
+		<script src="scripts/jcanvas.js"></script>
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+
+			canvas {
+				padding-left: 50;
+				padding-right: 50;
+				margin-left: auto;
+				margin-right: auto;
+				background-color: #FFEEEE;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mendorGraphCanvas"></canvas>
+
+		<script>
+			var HOURS_PER_DAY = 24;
+
+			function MendorGraph(params) {
+				//
+				// load and set config params
+				//
+				this.canvas = params.canvas;
+				this.jCanvas = $("canvas");
+				this.minDate = params.minDate;
+				this.maxDate = params.maxDate;
+				this.minHour = -6;
+				this.maxHour = 18;
+
+				//
+				// set styles
+				//
+				var context = this.canvas.getContext("2d");
+				this.context = context;
+				this.dateAxisColor = "#AAAAAA";
+				this.dateFontStyle = 'Arial 8pt';
+				this.dateFontColor = "#000000";
+				this.dateNonWeekdayBackgroundColor = "#FFFFFF";
+
+				this.hourAxisColor = "#666666";
+				this.hourFontStyle = 'Arial 8pt';
+				this.hourFontColor = "#000000";
+
+				//
+				// set styles and graphical metrics
+				//
+				context.font = this.dateFontStyle;
+				this.minX = new Array();
+				this.minX.dayOfWeek = 20;
+				this.minX.day = this.minX.dayOfWeek + context.measureText('WWWW').width;
+				this.minX.hour = this.minX.day + context.measureText('88').width + 20;
+
+				this.yStep = 40;
+				this.minY = 10;
+				this.maxY = this.canvas.height - 30;
+				this.hourTickHeight = 5;
+
+				// draw x y axis and tick marks
+				this.drawHourAxis();
+				this.drawDateAxis();
+			}
+
+
+			MendorGraph.prototype.drawHourAxis = function() {
+				var jCanvas = this.jCanvas;
+
+				//
+				// draw axis line
+				//
+				jCanvas.drawLine({
+					strokeStyle : this.hourAxisColor,
+					strokeWidth : 2,
+					x1 : 0,
+					y1 : this.maxY,
+					x2 : this.canvas.width + 200,
+					y2 : this.maxY
+				});
+
+				//
+				// draw axis ticks
+				//
+				var timeInterval = this.maxHour - this.minHour;
+				var x = this.minX.hour;
+				var xStep = (this.canvas.width - x) / timeInterval;
+
+				for (var hour = this.minHour; hour < this.maxHour; hour += 1, x += xStep) {
+					jCanvas.drawLine({
+						strokeStyle : this.hourAxisColor,
+						strokeWidth : (hour % 2 == 0 ? 2 : 1),
+						x1 : x,
+						y1 : this.maxY,
+						x2 : x,
+						y2 : this.maxY + this.hourTickHeight
+					});
+
+					if (hour % 2 == 0) {
+						var hourString = hour < 0 ? hour + HOURS_PER_DAY : hour;
+						hourString += ":00";
+
+						jCanvas.drawText({
+							font : this.hourFontStyle,
+							fillStyle : this.hourFontColor,
+							strokeStyle : this.hourFontColor,
+							strokeWidth : 1,
+							x : x,
+							y : this.maxY + this.hourTickHeight + 10,
+							text : hourString,
+						});
+					}
+				}
+			};
+
+			MendorGraph.prototype.drawDateAxis = function() {
+				var jCanvas = this.jCanvas;
+
+				var dateInterval = this.maxDate - this.minDate;
+				var yStep = this.yStep;
+				var y = this.maxY - yStep;
+
+				for (var date = this.maxDate; y >= this.minY; y -= yStep) {
+
+					if (!isWeekend(date)) {
+						jCanvas.drawRect({
+							fillStyle : this.dateNonWeekdayBackgroundColor,
+							x : 0,
+							y : y + 1,
+							width : this.canvas.width,
+							height : yStep - 2,
+							fromCenter : false
+						});
+
+					}
+
+					jCanvas.drawLine({
+						strokeStyle : this.dateAxisColor,
+						strokeWidth : 1,
+						x1 : 0,
+						y1 : y,
+						x2 : this.canvas.width,
+						y2 : y
+					});
+
+					jCanvas.drawText({
+						font : this.dateFontStyle,
+						fillStyle : this.dateFontColor,
+						align : 'left',
+						x : this.minX.dayOfWeek,
+						y : y + yStep / 2,
+						text : getDayOfWeek(date)
+					});
+
+					jCanvas.drawText({
+						font : this.dateFontStyle,
+						fillStyle : this.dateFontColor,
+						align : 'left',
+						x : this.minX.day,
+						y : y + yStep / 2,
+						text : date.getDate(),
+					});
+
+					// jCanvas.drawRect({
+					// fillStyle : this.dateNonWeekdayBackgroundColor,
+					// x : 0,
+					// y : y,
+					// width : this.canvas.width,
+					// height : y + yStep,
+					// fromCenter : false
+					// });
+
+					date.setDate(date.getDate() - 1);
+				}
+
+			}
+			function getDayOfWeek(date) {
+				var dayOfWeek = date.getDay();
+				return ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][dayOfWeek];
+			}
+
+			function isWeekend(date) {
+				var dayOfWeek = date.getDay();
+				return dayOfWeek == 0 || dayOfWeek == 6;
+			}
+
+
+			window.onload = function() {
+
+				var canvas = document.getElementById("mendorGraphCanvas");
+				canvas.width = window.screen.width * 0.9;
+				canvas.height = window.screen.height * 0.5;
+
+				var mendorGraph = new MendorGraph({
+					canvas : canvas,
+					minDate : new Date(2012, 11, 1),
+					maxDate : new Date(2012, 12, 5),
+				});
+
+			};
+		</script>
+	</body>
+</html>

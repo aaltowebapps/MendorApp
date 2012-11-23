@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="scripts/jquery-1.8.3.js"></script>
+		<script src="scripts/jquery.mobile-1.2.0.js"></script>
+		<script src="scripts/jcanvas.js"></script>
+		<script src="scripts/jquery.format-1.2.js"></script>
+		<script src="scripts/Mendor.js"></script>
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+
+			canvas {
+				padding-left: 50;
+				padding-right: 50;
+				margin-left: auto;
+				margin-right: auto;
+				background-color: #FFEEEE;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mendorGraphicsCanvas"></canvas>
+
+		<script>
+			function MendorGraph(/* Array */params) {
+
+				//
+				// load and set config params
+				//
+				this.canvas = params.canvas;
+				this.jCanvas = $("#" + params.canvas.id);
+				this.minDate = params.minDate;
+				this.maxDate = params.maxDate;
+
+				this.minHour = -6;
+				this.maxHour = this.minHour + HOURS_PER_DAY;
+
+				//
+				// set styles
+				//
+				var context = this.canvas.getContext("2d");
+				this.context = context;
+				this.dateAxisColor = "#AAAAAA";
+				this.dateFontStyle = 'Arial 8pt';
+				this.dateFontColor = "#000000";
+				this.dateWeekDayRowBackgroundColor = "#FFFFFF";
+				this.monthRowBackgroundColor = "#FF8888";
+				this.monthFontStyle = 'Arial 12pt';
+				this.monthFontColor = "#FFFFFF";
+
+				this.hourAxisColor = "#666666";
+				this.hourFontStyle = 'Arial 8pt';
+				this.hourFontColor = "#000000";
+
+				//
+				// set styles and graphical metrics
+				//
+				context.font = this.dateFontStyle;
+				this.minX = new Array();
+				this.minX.dayOfWeek = 20;
+				this.minX.day = this.minX.dayOfWeek + context.measureText('WWWW').width;
+				this.minX.hour = this.minX.day + context.measureText('88').width + 20;
+				this.xStep = (this.canvas.width - this.minX.hour) / (this.maxHour - this.minHour);
+
+				this.yStep = 40;
+				this.minY = 10;
+				this.maxY = this.canvas.height - 30;
+				this.hourTickHeight = 5;
+				this.valueRadius = 5;
+
+				// draw x y axis and tick marks
+				this.drawHourAxis();
+				this.drawDateAxis();
+			}
+
+
+			MendorGraph.prototype.drawHourAxis = function() {
+				var jCanvas = this.jCanvas;
+
+				//
+				// draw axis line
+				//
+				jCanvas.drawLine({
+					strokeStyle : this.hourAxisColor,
+					strokeWidth : 2,
+					x1 : 0,
+					y1 : this.maxY,
+					x2 : this.canvas.width + 200,
+					y2 : this.maxY
+				});
+
+				//
+				// draw axis ticks
+				//
+				var x = this.minX.hour;
+				for (var hour = this.minHour; hour < this.maxHour; hour += 1, x += this.xStep) {
+					jCanvas.drawLine({
+						strokeStyle : this.hourAxisColor,
+						strokeWidth : (hour % 2 == 0 ? 2 : 1),
+						x1 : x,
+						y1 : this.maxY,
+						x2 : x,
+						y2 : this.maxY + this.hourTickHeight
+					});
+
+					if (hour % 2 == 0) {
+						jCanvas.drawText({
+							font : this.hourFontStyle,
+							fillStyle : this.hourFontColor,
+							strokeStyle : this.hourFontColor,
+							strokeWidth : 1,
+							x : x,
+							y : this.maxY + this.hourTickHeight + 10,
+							text : $.format.number(hour >= 0 ? hour : hour + HOURS_PER_DAY, "00") + ":00",
+						});
+					}
+				}
+			};
+
+			MendorGraph.prototype.drawDateAxis = function() {
+				var jCanvas = this.jCanvas;
+
+				var yStep = this.yStep;
+				var y = this.maxY - yStep;				
+
+				for (var date = this.maxDate; y >= this.minY; y -= yStep) {
+					
+					var previousDate = addDayInterval(date, -1);
+
+					// draw date row rectangle
+					if (!isWeekend(date)) {
+						jCanvas.drawRect({
+							fillStyle : this.dateWeekDayRowBackgroundColor,
+							x : 0,
+							y : y + 1,
+							width : this.canvas.width,
+							height : yStep - 2,
+							fromCenter : false
+						});
+
+					}
+
+					// draw day-of-week text
+					jCanvas.drawText({
+						font : this.dateFontStyle,
+						fillStyle : this.dateFontColor,
+						align : 'left',
+						x : this.minX.dayOfWeek,
+						y : y + yStep / 2,
+						text : $.format.date(date, "EEE")
+					});
+
+					// draw date text
+					jCanvas.drawText({
+						font : this.dateFontStyle,
+						fillStyle : this.dateFontColor,
+						align : 'left',
+						x : this.minX.day,
+						y : y + yStep / 2,
+						text : $.format.date(date, "dd")
+					});
+
+					if (date.getDate() != 1) {
+
+						// draw date row rectangle border
+						jCanvas.drawLine({
+							strokeStyle : this.dateAxisColor,
+							strokeWidth : 1,
+							x1 : 0,
+							y1 : y,
+							x2 : this.canvas.width,
+							y2 : y
+						});
+
+					} else {
+						// draw month title row
+						y -= yStep;
+
+						jCanvas.drawRect({
+							fillStyle : this.monthRowBackgroundColor,
+							x : 0,
+							y : y,
+							width : this.canvas.width,
+							height : yStep - 1,
+							fromCenter : false
+						});
+
+						// draw date text
+						jCanvas.drawText({
+							font : this.monthFontStyle,
+							fillStyle : this.monthFontColor,
+							align : 'left',
+							x : this.minX.dayOfWeek + 20,
+							y : y + yStep / 2,
+							text : $.format.date(date, "MMMMM yyyy")
+						});
+
+					}
+					
+					date = previousDate;
+				} // for
+
+			}
+
+			MendorGraph.prototype.getPosition = function(time) {
+				var position = new Array();
+
+				var dayInterval = 0;
+				var hourInterval = time.getHours() + (time.getMinutes() / MINUTES_PER_HOUR);
+				if (hourInterval >= this.maxHour) {
+					hourInterval -= HOURS_PER_DAY;
+					time = addDayInterval(time, 1);
+				}
+
+				position.x = this.minX.hour + this.xStep * (hourInterval - this.minHour);
+
+				var monthInterval = ((this.maxDate.getYear() - time.getYear()) * MONTHS_PER_YEAR) + (this.maxDate.getMonth() - time.getMonth());
+				var dayInterval = getDayInterval(time, this.maxDate) + monthInterval;
+				position.y = this.maxY - this.yStep * dayInterval - this.yStep / 2;
+				return position;
+			}
+
+			MendorGraph.prototype.drawValue = function(time, value, color) {
+
+				var jCanvas = this.jCanvas;
+
+				var yStep = this.yStep;
+				var position = this.getPosition(time);
+
+				// draw circle
+				jCanvas.drawEllipse({
+					fillStyle : color,
+					strokeStyle : 'black',
+					strokeWidth : 1,
+					x : position.x,
+					y : position.y + yStep / 8,
+					width : this.valueRadius * 2,
+					height : this.valueRadius * 2
+				});
+
+				// write text
+				jCanvas.drawText({
+					font : this.dateFontStyle,
+					fillStyle : this.dateFontColor,
+					x : position.x,
+					y : position.y - yStep / 8,
+					text : $.format.number(value, "0.0"),
+				});
+
+			}
+
+			window.onload = function() {
+
+				var canvas = document.getElementById("mendorGraphicsCanvas");
+				canvas.width = window.screen.width * 0.9;
+				canvas.height = window.screen.height * 0.5;
+
+				var mendorGraph = new MendorGraph({
+					canvas : canvas,
+					minDate : new Date(2012, 10, 1),
+					maxDate : new Date(2012, 11, 5),
+				});
+
+				mendorGraph.drawValue(new Date(2012, 11, 5, 8, 24), 2.1, 'red');
+				mendorGraph.drawValue(new Date(2012, 11, 3, 18, 07), 13.5, 'green');
+				mendorGraph.drawValue(new Date(2012, 10, 28, 20, 20), 13.5, 'green');
+				mendorGraph.drawValue(new Date(2012, 10, 30, 20, 20), 13.5, 'red');
+
+				for (var i = 0; i < 10; ++i) {
+
+					var time = addTimeInterval(mendorGraph.maxDate, -randomDouble(10.0) * MILLISECONDS_PER_DAY);
+					var value = randomDouble(50.0);
+					var color = randomInteger(1) == 0 ? 'red' : 'green';
+
+					mendorGraph.drawValue(time, value, color);
+				}
+
+			};
+		</script>
+	</body>
+</html>

@@ -252,22 +252,50 @@
 
 			}
 
-			window.onload = function() {
+			function getJSONData(mendorGraph){
+				// Example JSON call
+				$.ajax('http://devweb.mendor.com/core/person/10000000/pairedmeasurements?startdate=2011/10/07%2012:00:00&enddate=2011/11/04%2011:59:59&filter=All',
+			 		{
+						success: function(result) {
+							console.log(result);
+							drawValuesFromJSON(result, mendorGraph);
+						},
+					});
+			}
 
+			function drawValuesFromJSON(json, mendorGraph){
+				json.MeasurementDays.forEach(function(measurement){
+					measurement.Measurements.forEach(function(singleMeasurement){
+						console.log(singleMeasurement);
+						var date = new Date(singleMeasurement.Timestamp);
+						var year = date.getFullYear();
+						var month = date.getMonth();
+						var day = date.getDate();
+						var hour = date.getHours();
+						var minutes = date.getMinutes();
+						var value = singleMeasurement.Value;
+						mendorGraph.drawValue(new Date(year, month, day, hour, minutes), value, 'red');
+					});
+				});
+			}
+
+			window.onload = function() {
+				
 				var canvas = document.getElementById("mendorGraphicsCanvas");
 				canvas.width = window.screen.width * 0.9;
 				canvas.height = window.screen.height * 0.5;
 
 				var mendorGraph = new MendorGraph({
 					canvas : canvas,
-					minDate : new Date(2012, 10, 1),
-					maxDate : new Date(2012, 11, 5),
+					minDate : new Date(2011, 9, 20),
+					maxDate : new Date(2011, 9, 29),
 				});
 
-				mendorGraph.drawValue(new Date(2012, 11, 5, 8, 24), 2.1, 'red');
-				mendorGraph.drawValue(new Date(2012, 11, 3, 18, 07), 13.5, 'green');
-				mendorGraph.drawValue(new Date(2012, 10, 28, 20, 20), 13.5, 'green');
-				mendorGraph.drawValue(new Date(2012, 10, 30, 20, 20), 13.5, 'red');
+				var results = getJSONData(mendorGraph);
+				// mendorGraph.drawValue(new Date(2012, 11, 5, 8, 24), 2.1, 'red');
+				// mendorGraph.drawValue(new Date(2012, 11, 3, 18, 07), 13.5, 'green');
+				// mendorGraph.drawValue(new Date(2012, 10, 28, 20, 20), 13.5, 'green');
+				// mendorGraph.drawValue(new Date(2012, 10, 30, 20, 20), 13.5, 'red');
 
 				for (var i = 0; i < 10; ++i) {
 
@@ -275,7 +303,7 @@
 					var value = randomDouble(50.0);
 					var color = randomInteger(1) == 0 ? 'red' : 'green';
 
-					mendorGraph.drawValue(time, value, color);
+					// mendorGraph.drawValue(time, value, color);
 				}
 
 			};

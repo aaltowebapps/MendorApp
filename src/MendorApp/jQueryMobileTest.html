@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery Mobile Example</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="scripts.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+		<script>
+
+
+			function getJSONData(){
+				// Example JSON call
+				$.ajax('http://devweb.mendor.com/core/person/10000000/pairedmeasurements?startdate=2011/10/07%2012:00:00&enddate=2011/11/04%2011:59:59&filter=All',
+			 		{
+						success: function(result) {
+							console.log(result);
+							parseDataFromJSON(result);
+						},
+					});
+			}
+
+			function parseDataFromJSON(json){
+				json.MeasurementDays.forEach(function(measurement){
+					measurement.Measurements.forEach(function(singleMeasurement){
+						console.log(singleMeasurement);
+						if(singleMeasurement.PairedMeasurement != null){
+							// this is how you can get data easily, but probably not the right way to render these...
+							var html = '<p class="none">' + singleMeasurement.Timestamp + " : " + singleMeasurement.Value + "</p>";
+
+							console.log("Second measurement");
+							var html2= '<p class="none"><b>' + singleMeasurement.PairedMeasurement.Timestamp + " : " + singleMeasurement.PairedMeasurement.Value + "</b></p><br>";	
+						}
+						console.log(html);
+						$(".content").append(html);
+						$(".content").append(html2);
+						
+					});
+				});
+			}
+			
+			window.onload = function() {
+				getJSONData();
+			}
+
+
+
+		</script>
+	</head>
+	<body>
+		<div id="main" data-role="page">
+			<header data-role="header">
+				<h1>Examples</h1>
+			</header>
+			<div class="content" data-role="content">
+				<p class="none">
+					Measurements:
+				</p>
+			</div>
+			<footer data-role="footer">
+				<h6>Footer</h6>
+			</footer>
+		</div>
+	</body>
+</html>

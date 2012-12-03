@@ -26,22 +26,27 @@
 					measurement.Measurements.forEach(function(singleMeasurement){
 						console.log(singleMeasurement);
 						if(singleMeasurement.PairedMeasurement != null){
-							// this is how you can get data easily, but probably not the right way to render these...
-							var html = '<p class="none">' + singleMeasurement.Timestamp + " : " + singleMeasurement.Value + "</p>";
-
+							// this is how you can get data easily, but probably not the "right" way to render these...
+							var html = '<li data-role="list-divider" role="heading">Measurement pair</li> \
+							<li data-theme="b">' + singleMeasurement.Timestamp + " : " + singleMeasurement.Value + '<br>'
+							+ singleMeasurement.PairedMeasurement.Timestamp.toString() + " : " + singleMeasurement.PairedMeasurement.Value + '</p></li>';
 							console.log("Second measurement");
-							var html2= '<p class="none"><b>' + singleMeasurement.PairedMeasurement.Timestamp + " : " + singleMeasurement.PairedMeasurement.Value + "</b></p><br>";	
+							
 						}
 						console.log(html);
-						$(".content").append(html);
-						$(".content").append(html2);
+						$("#listview-content").append(html);
+						
+
 						
 					});
 				});
+				$("#listview-content").listview("refresh");
+
 			}
 			
 			window.onload = function() {
 				getJSONData();
+
 			}
 
 
@@ -51,12 +56,11 @@
 	<body>
 		<div id="main" data-role="page">
 			<header data-role="header">
-				<h1>Examples</h1>
+				<h1>Header</h1>
 			</header>
 			<div class="content" data-role="content">
-				<p class="none">
-					Measurements:
-				</p>
+				<ul id="listview-content" data-role="listview" data-divider-theme="a" data-inset="false">
+				</ul>
 			</div>
 			<footer data-role="footer">
 				<h6>Footer</h6>

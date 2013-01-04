@@ -9,10 +9,19 @@
 		<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
 		<script>
 
+			function convertDate(date){
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var day = date.getDate();
+				return year + '/' + month + '/' + day + '%20' + '00:00:00';
+			}
 
-			function getJSONData(){
+			function getJSONData(person, startDate, endDate){
+				var url = 'http://devweb.mendor.com/core/' + person + '/pairedmeasurements?stardate=' + startDate + '&enddate=' + endDate +'&filter=All';
 				// Example JSON call
-				$.ajax('http://devweb.mendor.com/core/person/10000000/pairedmeasurements?startdate=2011/10/07%2012:00:00&enddate=2011/11/04%2011:59:59&filter=All',
+				// http://devweb.mendor.com/core/person/10000000/pairedmeasurements?startdate=2011/10/07%2012:00:00&enddate=2011/11/04%2011:59:59&filter=All
+				console.log(url);
+				$.ajax(url,
 			 		{
 						success: function(result) {
 							console.log(result);
@@ -45,7 +54,13 @@
 			}
 			
 			window.onload = function() {
-				getJSONData();
+				var endDate = new Date();
+				var startDate = new Date(endDate - 60*60*24*7*1000); // 7 days ago
+				var convertedEndDate = convertDate(endDate);
+				var convertedStartDate = convertDate(startDate);
+				console.log(convertedEndDate);
+				console.log(convertedStartDate);
+				getJSONData(10000000, convertedStartDate, convertedEndDate);
 
 			}
 

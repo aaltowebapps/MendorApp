@@ -9,7 +9,7 @@
  * 		jquery.format-1.2.min.js
  * 		raphael-min.js  
  * 		raphael-popup.js
- * 		Mendor.js
+ * 		datetime.js
  */
 
 
@@ -540,6 +540,13 @@ MendorGraph.prototype.drawData = function(xmlData) {
 	$(xmlMeasurementDays).find('Paired24HourPeriodDTO').each(function() {
 		++dayCount;
 		
+		var date = new Date(this.getElementsByTagName('Day')[0].textContent);
+		
+		if (!isBetweenDates(date, mendorGraph.startDate, mendorGraph.endDate)) {
+			// skip
+			return;
+		}
+		
 		var xmlMeasurements = this.getElementsByTagName('Measurements');
 		$(xmlMeasurements).find('PairedMeasurementDTO').each(function() {			
 			
@@ -597,10 +604,11 @@ MendorGraph.prototype.loadDataFromInternet = function(settings) {
 	var mendorGraph = this;	
 	var timeFormat = 'yyyy/MM/dd%20HH%3Amm%3Ass';	
 	
+	var urlPattern = 'http://devweb.mendor.com/core/person/{personId}/pairedmeasurements?startdate={startDate}&enddate={endDate}&filter=All';
 	var url;
 	
 	if (!settings || !settings.useDumpData) {
-		url = Raphael.fullfill('http://devweb.mendor.com/core/person/{personId}/pairedmeasurements?startdate={startDate}&enddate={endDate}&filter=All', {
+		url = Raphael.fullfill(urlPattern, {
 			personId : this.personId,
 			startDate : $.format.date(this.startDate, timeFormat),
 			endDate : $.format.date(this.endDate, timeFormat), 
@@ -628,3 +636,13 @@ MendorGraph.prototype.loadDataFromInternet = function(settings) {
 			textStatus);
 	})
 }
+
+
+function printJsonData(data) {
+	var s = '';
+	for (var key in data) {
+		s = s.concat(key + ': ' + data[key] + '\n');
+	}
+	window.alert(s);	
+}
+

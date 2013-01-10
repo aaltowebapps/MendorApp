@@ -57,6 +57,19 @@ function /* int */ getMonthInterval(/* Date */time1, /* Date */time2) {
 
 
 //
+// Checkes if a date is between two others
+//
+function /* boolean */ isBetweenDates (/* Date */ date, /* Date */ startDate, /* Date */ endDate) {
+	
+	var dateIndex = (date.getYear() * MONTHS_PER_YEAR + date.getMonth()) * 31 + date.getDate(); 
+	var startDateIndex = (startDate.getYear() * MONTHS_PER_YEAR + startDate.getMonth()) * 31 + startDate.getDate(); 
+	var endDateIndex = (endDate.getYear() * MONTHS_PER_YEAR + endDate.getMonth()) * 31 + endDate.getDate();
+
+	return startDateIndex <= dateIndex && dateIndex <= endDateIndex;
+}
+
+
+//
 // Gets a random integer value from 0 to max
 //
 function/* int */ randomInteger(/* int */max) {
@@ -70,12 +83,4 @@ function/* double */ randomDouble(/* double */max) {
 	return Math.random() * max;
 }
 
-
-function printJsonData(data) {
-	var s = '';
-	for (var key in data) {
-		s = s.concat(key + ': ' + data[key] + '\n');
-	}
-	window.alert(s);	
-}
 

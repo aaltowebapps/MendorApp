@@ -5,7 +5,7 @@
 		<script src="scripts/jquery.format-1.2.js"></script>
 		<script src="scripts/raphael-min.js"></script>
 		<script src="scripts/raphael-popup.js"></script>
-		<script src="scripts/Mendor.js"></script>
+		<script src="scripts/datetime.js"></script>
 		<script src="scripts/MendorGraph.js"></script>
 		<style>
 			body {
@@ -28,7 +28,7 @@
 			<div
 				id="mendorGraph"
 				class="canvas"
-				style="width:1200px; height:600px; margin-top: 10px; overflow:auto;">
+				style="width:1200px; height:800px; margin-top: 10px; overflow:auto;">
 			</div>
 		</center>
 
@@ -37,8 +37,8 @@
 				var mendorGraph = new MendorGraph({
 					frameId : "mendorGraph",
 					personId: 10000000,
-					startDate : new Date(2011, 8, 25), // 25.09.2011
-					endDate : new Date(2011, 10, 4), // 04.11.2011
+					startDate : new Date(2011, 7, 25), // 25.08.2011
+					endDate : new Date(2011, 9, 5), // 05.10.2011
 				})
 				.loadDataFromInternet({
 					useDumpData : true,

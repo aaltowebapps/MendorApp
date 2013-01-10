@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="scripts/jquery-1.8.3.min.js"></script>
+		<script src="scripts/jquery.format-1.2.js"></script>
+		<script src="scripts/raphael-min.js"></script>
+		<script src="scripts/raphael-popup.js"></script>
+		<script src="scripts/Mendor.js"></script>
+		<script src="scripts/MendorGraph.js"></script>
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+
+			canvas {
+				padding-left: 50;
+				padding-right: 50;
+				margin-left: auto;
+				margin-right: auto;
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+
+		<center>
+			<div
+				id="mendorGraph"
+				class="canvas"
+				style="width:1200px; height:600px; margin-top: 10px; overflow:auto;">
+			</div>
+		</center>
+
+		<script>
+			window.onload = function() {
+				var mendorGraph = new MendorGraph({
+					frameId : "mendorGraph",
+					personId: 10000000,
+					startDate : new Date(2011, 8, 25), // 25.09.2011
+					endDate : new Date(2011, 10, 4), // 04.11.2011
+				})
+				.loadDataFromInternet({
+					useDumpData : true,
+				});	
+			}
+
+		</script>
+	</body>
+</html>

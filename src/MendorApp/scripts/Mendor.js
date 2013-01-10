@@ -1,5 +1,5 @@
 /**
- * @author Nam
+ * @author Nam Vu Hoang
  */
 
 /**
@@ -46,6 +46,16 @@ function/* int */ getDayInterval(/* Date */time1, /* Date */time2) {
 	return Math.floor (milisecs / MILLISECONDS_PER_HOUR / HOURS_PER_DAY);
 }
 
+
+//
+// Gets the month inverval between two dates
+//
+function /* int */ getMonthInterval(/* Date */time1, /* Date */time2) {
+	return (time2.getYear() - time1.getYear()) * MONTHS_PER_YEAR +
+		(time2.getMonth() - time1.getMonth());
+}
+
+
 //
 // Gets a random integer value from 0 to max
 //
@@ -58,5 +68,14 @@ function/* int */ randomInteger(/* int */max) {
 //
 function/* double */ randomDouble(/* double */max) {
 	return Math.random() * max;
+}
+
+
+function printJsonData(data) {
+	var s = '';
+	for (var key in data) {
+		s = s.concat(key + ': ' + data[key] + '\n');
+	}
+	window.alert(s);	
 }
 

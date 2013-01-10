@@ -1,0 +1,893 @@
+<LogbookDTO xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Balance.Core.Web.DTO">
+	<DecimalMidnightOffset>0.25</DecimalMidnightOffset>
+	<ID>10000000</ID>
+	<MeasurementDays>
+		<Paired24HourPeriodDTO>
+			<Day>2011-09-25T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.019375000000000062</DecimalTimeOffset>
+					<Timestamp>2011-09-25T18:27:54</Timestamp>
+					<Value>8.833</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.10304398148148156</DecimalTimeOffset>
+					<Timestamp>2011-09-25T20:28:23</Timestamp>
+					<Value>9.167</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.52009259259259266</DecimalTimeOffset>
+						<Timestamp>2011-09-26T06:28:56</Timestamp>
+						<Value>9.444</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>Bedtime</Type>
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.60378472222222224</DecimalTimeOffset>
+					<Timestamp>2011-09-26T08:29:27</Timestamp>
+					<Value>9.444</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-09-26T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.54273148148148143</DecimalTimeOffset>
+					<Timestamp>2011-09-27T07:01:32</Timestamp>
+					<Value>9.5</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.6267476851851852</DecimalTimeOffset>
+						<Timestamp>2011-09-27T09:02:31</Timestamp>
+						<Value>9.333</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>FirstMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-09-27T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.75210648148148151</DecimalTimeOffset>
+					<Timestamp>2011-09-28T12:03:02</Timestamp>
+					<Value>9.389</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.835763888888889</DecimalTimeOffset>
+						<Timestamp>2011-09-28T14:03:30</Timestamp>
+						<Value>10</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-09-28T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-09-29T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.00353009259259254</DecimalTimeOffset>
+					<Timestamp>2011-09-29T18:05:05</Timestamp>
+					<Value>10.389</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.08719907407407404</DecimalTimeOffset>
+					<Timestamp>2011-09-29T20:05:34</Timestamp>
+					<Value>10.611</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.5043981481481481</DecimalTimeOffset>
+						<Timestamp>2011-09-30T06:06:20</Timestamp>
+						<Value>9</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>Bedtime</Type>
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.58804398148148151</DecimalTimeOffset>
+					<Timestamp>2011-09-30T08:06:47</Timestamp>
+					<Value>9.111</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-09-30T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.75524305555555571</DecimalTimeOffset>
+					<Timestamp>2011-10-01T12:07:33</Timestamp>
+					<Value>8.111</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.838900462962963</DecimalTimeOffset>
+						<Timestamp>2011-10-01T14:08:01</Timestamp>
+						<Value>8.389</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-01T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-02T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.0060300925925926346</DecimalTimeOffset>
+					<Timestamp>2011-10-02T18:08:41</Timestamp>
+					<Value>8.889</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.089733796296296325</DecimalTimeOffset>
+					<Timestamp>2011-10-02T20:09:13</Timestamp>
+					<Value>8.611</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.50680555555555551</DecimalTimeOffset>
+						<Timestamp>2011-10-03T06:09:48</Timestamp>
+						<Value>9.333</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>Bedtime</Type>
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.54185185185185181</DecimalTimeOffset>
+					<Timestamp>2011-10-03T07:00:16</Timestamp>
+					<Value>9.5</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.59049768518518519</DecimalTimeOffset>
+					<Timestamp>2011-10-03T08:10:19</Timestamp>
+					<Value>12.167</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-03T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.75755787037037037</DecimalTimeOffset>
+					<Timestamp>2011-10-04T12:10:53</Timestamp>
+					<Value>9.722</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.84120370370370379</DecimalTimeOffset>
+						<Timestamp>2011-10-04T14:11:20</Timestamp>
+						<Value>9.556</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-04T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-05T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.0083101851851852069</DecimalTimeOffset>
+					<Timestamp>2011-10-05T18:11:58</Timestamp>
+					<Value>9.389</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.091967592592592642</DecimalTimeOffset>
+					<Timestamp>2011-10-05T20:12:26</Timestamp>
+					<Value>10.889</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.5090625</DecimalTimeOffset>
+						<Timestamp>2011-10-06T06:13:03</Timestamp>
+						<Value>10.222</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>Bedtime</Type>
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.59270833333333339</DecimalTimeOffset>
+					<Timestamp>2011-10-06T08:13:30</Timestamp>
+					<Value>9.944</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-06T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.76003472222222224</DecimalTimeOffset>
+					<Timestamp>2011-10-07T12:14:27</Timestamp>
+					<Value>10.111</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.84370370370370373</DecimalTimeOffset>
+						<Timestamp>2011-10-07T14:14:56</Timestamp>
+						<Value>10.056</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-07T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-08T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.090775462962962988</DecimalTimeOffset>
+					<Timestamp>2011-10-08T20:10:43</Timestamp>
+					<Value>10.389</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.50807870370370367</DecimalTimeOffset>
+						<Timestamp>2011-10-09T06:11:38</Timestamp>
+						<Value>11.111</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>Bedtime</Type>
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.17440972222222229</DecimalTimeOffset>
+					<Timestamp>2011-10-08T22:11:09</Timestamp>
+					<Value>10.778</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.59171296296296294</DecimalTimeOffset>
+					<Timestamp>2011-10-09T08:12:04</Timestamp>
+					<Value>15.222</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-09T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.75944444444444437</DecimalTimeOffset>
+					<Timestamp>2011-10-10T12:13:36</Timestamp>
+					<Value>15.278</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-10T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-11T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.0097569444444444136</DecimalTimeOffset>
+					<Timestamp>2011-10-11T18:14:03</Timestamp>
+					<Value>17.167</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.09351851851851857</DecimalTimeOffset>
+					<Timestamp>2011-10-11T20:14:40</Timestamp>
+					<Value>16.111</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.59385416666666679</DecimalTimeOffset>
+					<Timestamp>2011-10-12T08:15:09</Timestamp>
+					<Value>16.389</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.677488425925926</DecimalTimeOffset>
+					<Timestamp>2011-10-12T10:15:35</Timestamp>
+					<Value>17.278</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-12T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.76114583333333352</DecimalTimeOffset>
+					<Timestamp>2011-10-13T12:16:03</Timestamp>
+					<Value>16.944</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.84478009259259268</DecimalTimeOffset>
+						<Timestamp>2011-10-13T14:16:29</Timestamp>
+						<Value>16.889</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-13T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-14T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.011759259259259303</DecimalTimeOffset>
+					<Timestamp>2011-10-14T18:16:56</Timestamp>
+					<Value>15.778</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.095416666666666733</DecimalTimeOffset>
+					<Timestamp>2011-10-14T20:17:24</Timestamp>
+					<Value>16</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.51509259259259266</DecimalTimeOffset>
+						<Timestamp>2011-10-15T06:21:44</Timestamp>
+						<Value>17.389</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>Bedtime</Type>
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.60160879629629627</DecimalTimeOffset>
+					<Timestamp>2011-10-15T08:26:19</Timestamp>
+					<Value>8</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-15T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.768900462962963</DecimalTimeOffset>
+					<Timestamp>2011-10-16T12:27:13</Timestamp>
+					<Value>8.278</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.85274305555555563</DecimalTimeOffset>
+						<Timestamp>2011-10-16T14:27:57</Timestamp>
+						<Value>8.667</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-16T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-17T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.019872685185185271</DecimalTimeOffset>
+					<Timestamp>2011-10-17T18:28:37</Timestamp>
+					<Value>8.278</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.10356481481481489</DecimalTimeOffset>
+					<Timestamp>2011-10-17T20:29:08</Timestamp>
+					<Value>8.333</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.535474537037037</DecimalTimeOffset>
+						<Timestamp>2011-10-18T06:51:05</Timestamp>
+						<Value>10.167</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement>
+							<DecimalTimeOffset>0.61920138888888887</DecimalTimeOffset>
+							<Timestamp>2011-10-18T08:51:39</Timestamp>
+							<Value>10.222</Value>
+							<IsPostMeasurement>true</IsPostMeasurement>
+							<OriginalMeasurements />
+							<PairedMeasurement i:nil="true" />
+							<Type i:nil="true" />
+						</PairedMeasurement>
+						<Type>FirstMeal</Type>
+					</PairedMeasurement>
+					<Type>Bedtime</Type>
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.535474537037037</DecimalTimeOffset>
+					<Timestamp>2011-10-18T06:51:05</Timestamp>
+					<Value>10.167</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.61920138888888887</DecimalTimeOffset>
+						<Timestamp>2011-10-18T08:51:39</Timestamp>
+						<Value>10.222</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>FirstMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-18T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.78622685185185182</DecimalTimeOffset>
+					<Timestamp>2011-10-19T12:52:10</Timestamp>
+					<Value>11</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.870011574074074</DecimalTimeOffset>
+						<Timestamp>2011-10-19T14:52:49</Timestamp>
+						<Value>10.889</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-19T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-20T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.037048611111111206</DecimalTimeOffset>
+					<Timestamp>2011-10-20T18:53:21</Timestamp>
+					<Value>10.889</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.12082175925925927</DecimalTimeOffset>
+					<Timestamp>2011-10-20T20:53:59</Timestamp>
+					<Value>10.944</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.55512731481481481</DecimalTimeOffset>
+					<Timestamp>2011-10-21T07:19:23</Timestamp>
+					<Value>8.389</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.63876157407407419</DecimalTimeOffset>
+						<Timestamp>2011-10-21T09:19:49</Timestamp>
+						<Value>9.778</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>FirstMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-21T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.76407407407407413</DecimalTimeOffset>
+					<Timestamp>2011-10-22T12:20:16</Timestamp>
+					<Value>11.778</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.84769675925925936</DecimalTimeOffset>
+						<Timestamp>2011-10-22T14:20:41</Timestamp>
+						<Value>12.111</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-22T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-23T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.014699074074074127</DecimalTimeOffset>
+					<Timestamp>2011-10-23T18:21:10</Timestamp>
+					<Value>12.389</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.098344907407407492</DecimalTimeOffset>
+					<Timestamp>2011-10-23T20:21:37</Timestamp>
+					<Value>12.278</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.51537037037037037</DecimalTimeOffset>
+						<Timestamp>2011-10-24T06:22:08</Timestamp>
+						<Value>12.222</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>Bedtime</Type>
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.41773148148148148</DecimalTimeOffset>
+					<Timestamp>2011-10-24T04:01:32</Timestamp>
+					<Value>8.056</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.59901620370370379</DecimalTimeOffset>
+					<Timestamp>2011-10-24T08:22:35</Timestamp>
+					<Value>11.5</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-24T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.76608796296296289</DecimalTimeOffset>
+					<Timestamp>2011-10-25T12:23:10</Timestamp>
+					<Value>11.889</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.84972222222222216</DecimalTimeOffset>
+						<Timestamp>2011-10-25T14:23:36</Timestamp>
+						<Value>11.944</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-25T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-26T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.058483796296296318</DecimalTimeOffset>
+					<Timestamp>2011-10-26T19:24:13</Timestamp>
+					<Value>12.222</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.51788194444444446</DecimalTimeOffset>
+						<Timestamp>2011-10-27T06:25:45</Timestamp>
+						<Value>12.889</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>Bedtime</Type>
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.14215277777777782</DecimalTimeOffset>
+					<Timestamp>2011-10-26T21:24:42</Timestamp>
+					<Value>12.667</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.60151620370370373</DecimalTimeOffset>
+					<Timestamp>2011-10-27T08:26:11</Timestamp>
+					<Value>13.389</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement i:nil="true" />
+					<Type i:nil="true" />
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-27T00:00:00</Day>
+			<Measurements>
+				<PairedMeasurementDTO>
+					<DecimalTimeOffset>0.76857638888888891</DecimalTimeOffset>
+					<Timestamp>2011-10-28T12:26:45</Timestamp>
+					<Value>14.389</Value>
+					<IsPostMeasurement>false</IsPostMeasurement>
+					<OriginalMeasurements />
+					<PairedMeasurement>
+						<DecimalTimeOffset>0.85225694444444444</DecimalTimeOffset>
+						<Timestamp>2011-10-28T14:27:15</Timestamp>
+						<Value>13.722</Value>
+						<IsPostMeasurement>true</IsPostMeasurement>
+						<OriginalMeasurements />
+						<PairedMeasurement i:nil="true" />
+						<Type i:nil="true" />
+					</PairedMeasurement>
+					<Type>SecondMeal</Type>
+				</PairedMeasurementDTO>
+			</Measurements>
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-28T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-29T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-30T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-10-31T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-11-01T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-11-02T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-11-03T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+		<Paired24HourPeriodDTO>
+			<Day>2011-11-04T00:00:00</Day>
+			<Measurements />
+		</Paired24HourPeriodDTO>
+	</MeasurementDays>
+	<Routines>
+		<LogbookRoutineDTO>
+			<PostPeriodFrom>198000000000</PostPeriodFrom>
+			<PostPeriodTo>0</PostPeriodTo>
+			<PostPeriodWindow>0</PostPeriodWindow>
+			<PrePeriodFrom>684000000000</PrePeriodFrom>
+			<PrePeriodTo>0</PrePeriodTo>
+			<PreferableName i:nil="true" />
+			<Type>Bedtime</Type>
+			<PostPeriodDuration>54000000000</PostPeriodDuration>
+			<PostPeriodDurationDecimal>0.0625</PostPeriodDurationDecimal>
+			<PostPeriodFromDecimalOffset>0.47916666666666669</PostPeriodFromDecimalOffset>
+			<PrePeriodDuration>54000000000</PrePeriodDuration>
+			<PrePeriodDurationDecimal>0.0625</PrePeriodDurationDecimal>
+			<PrePeriodFromDecimalOffset>0.041666666666666671</PrePeriodFromDecimalOffset>
+		</LogbookRoutineDTO>
+		<LogbookRoutineDTO>
+			<PostPeriodFrom>63000000000</PostPeriodFrom>
+			<PostPeriodTo>0</PostPeriodTo>
+			<PostPeriodWindow>0</PostPeriodWindow>
+			<PrePeriodFrom>234000000000</PrePeriodFrom>
+			<PrePeriodTo>0</PrePeriodTo>
+			<PreferableName i:nil="true" />
+			<Type>FirstMeal</Type>
+			<PostPeriodDuration>81000000000</PostPeriodDuration>
+			<PostPeriodDurationDecimal>0</PostPeriodDurationDecimal>
+			<PostPeriodFromDecimalOffset>0</PostPeriodFromDecimalOffset>
+			<PrePeriodDuration>54000000000</PrePeriodDuration>
+			<PrePeriodDurationDecimal>0.0625</PrePeriodDurationDecimal>
+			<PrePeriodFromDecimalOffset>0.52083333333333337</PrePeriodFromDecimalOffset>
+		</LogbookRoutineDTO>
+		<LogbookRoutineDTO>
+			<PostPeriodFrom>63000000000</PostPeriodFrom>
+			<PostPeriodTo>0</PostPeriodTo>
+			<PostPeriodWindow>0</PostPeriodWindow>
+			<PrePeriodFrom>414000000000</PrePeriodFrom>
+			<PrePeriodTo>0</PrePeriodTo>
+			<PreferableName i:nil="true" />
+			<Type>SecondMeal</Type>
+			<PostPeriodDuration>81000000000</PostPeriodDuration>
+			<PostPeriodDurationDecimal>0</PostPeriodDurationDecimal>
+			<PostPeriodFromDecimalOffset>0</PostPeriodFromDecimalOffset>
+			<PrePeriodDuration>54000000000</PrePeriodDuration>
+			<PrePeriodDurationDecimal>0.0625</PrePeriodDurationDecimal>
+			<PrePeriodFromDecimalOffset>0.72916666666666674</PrePeriodFromDecimalOffset>
+		</LogbookRoutineDTO>
+	</Routines>
+	<Statistics>
+		<AverageMeasurementsPerDay>1.8205128205128205</AverageMeasurementsPerDay>
+		<AverageMeasurementsPerWeek>12.743589743589745</AverageMeasurementsPerWeek>
+		<GrandAverageMmolL>11.214408767055458</GrandAverageMmolL>
+		<ID>10000000</ID>
+		<LastMeasurementDate i:nil="true" />
+		<MeasurementsAbove15MmolL>11</MeasurementsAbove15MmolL>
+		<MeasurementsBelow4MmolL>0</MeasurementsBelow4MmolL>
+		<RoutineStatistics>
+			<RoutineStatisticsDTO>
+				<PairCount>9</PairCount>
+				<PostAverage>11.308555603027344</PostAverage>
+				<PostTotal>101.77700042724609</PostTotal>
+				<PreAverage>10.944444444444445</PreAverage>
+				<PreTotal>98.5</PreTotal>
+				<Type>Bedtime</Type>
+			</RoutineStatisticsDTO>
+			<RoutineStatisticsDTO>
+				<PairCount>3</PairCount>
+				<PostAverage>9.7776667277018223</PostAverage>
+				<PostTotal>29.333000183105469</PostTotal>
+				<PreAverage>9.3519999186197911</PreAverage>
+				<PreTotal>28.055999755859375</PreTotal>
+				<Type>FirstMeal</Type>
+			</RoutineStatisticsDTO>
+			<RoutineStatisticsDTO>
+				<PairCount>10</PairCount>
+				<PostAverage>11.222299957275391</PostAverage>
+				<PostTotal>112.22299957275391</PostTotal>
+				<PreAverage>11.161100006103515</PreAverage>
+				<PreTotal>111.61100006103516</PreTotal>
+				<Type>SecondMeal</Type>
+			</RoutineStatisticsDTO>
+		</RoutineStatistics>
+		<TotalMeasurementCount>71</TotalMeasurementCount>
+		<TotalPairPercentage>45.833333333333329</TotalPairPercentage>
+	</Statistics>
+</LogbookDTO>

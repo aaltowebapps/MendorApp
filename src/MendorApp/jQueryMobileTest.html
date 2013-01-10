@@ -17,7 +17,7 @@
 			}
 
 			function getJSONData(person, startDate, endDate){
-				var url = 'http://devweb.mendor.com/core/' + person + '/pairedmeasurements?stardate=' + startDate + '&enddate=' + endDate +'&filter=All';
+				var url = 'http://devweb.mendor.com/core/person/' + person + '/pairedmeasurements?startdate=' + startDate + '&enddate=' + endDate +'&filter=All';
 				// Example JSON call
 				// http://devweb.mendor.com/core/person/10000000/pairedmeasurements?startdate=2011/10/07%2012:00:00&enddate=2011/11/04%2011:59:59&filter=All
 				console.log(url);
@@ -37,8 +37,8 @@
 						if(singleMeasurement.PairedMeasurement != null){
 							// this is how you can get data easily, but probably not the "right" way to render these...
 							var html = '<li data-role="list-divider" role="heading">Measurement pair</li> \
-							<li data-theme="b">' + singleMeasurement.Timestamp + " : " + singleMeasurement.Value + '<br>'
-							+ singleMeasurement.PairedMeasurement.Timestamp.toString() + " : " + singleMeasurement.PairedMeasurement.Value + '</p></li>';
+							<li data-theme="b">' + singleMeasurement.Timestamp.toLocaleString() + " : " + singleMeasurement.Value + '<br>'
+							+ singleMeasurement.PairedMeasurement.Timestamp.toLocaleString() + " : " + singleMeasurement.PairedMeasurement.Value + '</p></li>';
 							console.log("Second measurement");
 							
 						}
@@ -61,6 +61,7 @@
 				console.log(convertedEndDate);
 				console.log(convertedStartDate);
 				getJSONData(10000000, convertedStartDate, convertedEndDate);
+				getJSONData(10000000, '2011/10/07%2012:00:00', '2011/11/04%2011:59:59'); // just to show some data on screen
 
 			}
 

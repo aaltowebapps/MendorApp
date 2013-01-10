@@ -254,13 +254,19 @@
 
 			function getJSONData(mendorGraph){
 				// Example JSON call
-				$.ajax('http://devweb.mendor.com/core/person/10000000/pairedmeasurements?startdate=2011/10/07%2012:00:00&enddate=2011/11/04%2011:59:59&filter=All',
-			 		{
-						success: function(result) {
-							console.log(result);
-							drawValuesFromJSON(result, mendorGraph);
-						},
-					});
+	var url = 'http://devweb.mendor.com/core/person/10000000/pairedmeasurements?startdate=2011/10/07%2012:00:00&enddate=2011/11/04%2011:59:59&filter=All';    
+    
+    $.ajax(url, {
+        type: "GET",
+        timeout: 50000
+    })
+    .done(function() {
+        window.alert("success");
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
+        window.alert("jqXHR.responseText: " + jqXHR.responseText + "\nStatus: " + textStatus + "\n" + "ErrorThrown:" + errorThrown);
+    })
+
 			}
 
 			function drawValuesFromJSON(json, mendorGraph){

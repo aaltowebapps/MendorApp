@@ -113,9 +113,11 @@ function createMendorGraphStyle() {
 		measurement : {
 			Single : {
 				'fill' : 'red',
+				'fill-opacity': .6
 			},
 			Paired : {
 				'fill' : 'green',				
+				'fill-opacity': .6
 			},
 			Bedtime : {
 				'fill' : '#808',

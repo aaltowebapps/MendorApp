@@ -1,50 +1,82 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<script src="scripts/jquery-1.8.3.min.js"></script>
-		<script src="scripts/jquery.format-1.2.js"></script>
-		<script src="scripts/raphael-min.js"></script>
-		<script src="scripts/raphael-popup.js"></script>
-		<script src="scripts/datetime.js"></script>
-		<script src="scripts/MendorGraph.js"></script>
-		<style>
-			body {
-				margin: 0px;
-				padding: 0px;
+<head>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+
+	<script src="scripts/jquery-1.8.3.min.js"></script>
+	<script src="scripts/jquery-ui.js"></script>
+	<script src="scripts/jquery.format-1.2.js"></script>
+	<script src="scripts/raphael-min.js"></script>
+	<script src="scripts/raphael-popup.js"></script>
+	<script src="scripts/datetime.js"></script>
+	<script src="scripts/MendorGraph.js"></script>
+	<script>
+	$(function() {
+		var startDate;
+		var endDate;
+		$( "#startDate" ).datepicker({ showButtonPanel: true });
+		$( "#endDate" ).datepicker({ showButtonPanel: true });
+
+		$("#startDate").change(function(value){
+			console.log("startDate value: " + $("#startDate").val());
+			startDate = new Date($("#startDate").val());
+		});
+
+		$("#endDate").change(function(value){
+			console.log("endDate value: " + $("#endDate").val());
+			endDate = new Date($("#endDate").val());
+		});
+
+		$("#showGraph").click(function(){
+			if(!startDate || !endDate){
+				alert("Please check the dates!");
 			}
-
-			canvas {
-				padding-left: 50;
-				padding-right: 50;
-				margin-left: auto;
-				margin-right: auto;
-				border: 1px solid;
-			}
-		</style>
-	</head>
-	<body>
-
-		<center>
-			<div
-				id="mendorGraph"
-				class="canvas"
-				style="width:1200px; height:800px; margin-top: 10px; overflow:auto;">
-			</div>
-		</center>
-
-		<script>
-			window.onload = function() {
+			else{
+				console.log("showGraph clicked, creating graph with dates " + startDate + " and " + endDate);
 				var mendorGraph = new MendorGraph({
 					frameId : "mendorGraph",
 					personId: 10000000,
-					startDate : new Date(2011, 7, 25), // 25.08.2011
-					endDate : new Date(2011, 9, 5), // 05.10.2011
+					//startDate : new Date(2011, 7, 25), // 25.08.2011
+					// endDate : new Date(2011, 9, 5), // 05.10.2011
+					startDate: startDate,
+					endDate: endDate
 				})
 				.loadDataFromInternet({
 					useDumpData : false,
-				});	
-			}
+				});
+			}	
+		});
+	});
+	</script>
+	<style>
+	body {
+		margin: 0px;
+		padding: 0px;
+	}
 
-		</script>
-	</body>
+	canvas {
+		padding-left: 50;
+		padding-right: 50;
+		margin-left: auto;
+		margin-right: auto;
+		border: 1px solid;
+	}
+	</style>
+</head>
+<body>
+
+
+	<center>
+		<p>
+			Start: <input type="text" id="startDate" /> 
+			End: <input type="text" id="endDate" />
+			<button id="showGraph">Show graph</button>
+		</p>
+		<div
+		id="mendorGraph"
+		class="canvas"
+		style="width:1200px; height:800px; margin-top: 10px; overflow:auto;">
+	</div>
+</center>
+</body>
 </html>

@@ -56,14 +56,33 @@
 			}
 			
 			window.onload = function() {
+				var week = 60*60*24*7*1000;
+				var currentDate = new Date();
 				var endDate = new Date();
-				var startDate = new Date(endDate - 60*60*24*7*1000); // 7 days ago
+				var startDate = new Date(endDate - week);
 				var convertedEndDate = convertDate(endDate);
 				var convertedStartDate = convertDate(startDate);
 				console.log(convertedEndDate);
 				console.log(convertedStartDate);
 				getJSONData(10000000, convertedStartDate, convertedEndDate);
 				getJSONData(10000000, '2011/10/07%2012:00:00', '2011/11/04%2011:59:59'); // just to show some data on screen
+
+				$(".HeaderFilterCenter>center").html(startDate.toLocaleDateString() + " - " + endDate.toLocaleDateString());
+				$("#previous_week").click(function(){
+					endDate = new Date(endDate - week);
+					startDate = new Date(startDate - week);
+					console.log("Previous week button clicked, endDate: "+ endDate + " startDate: " + startDate);
+					$(".HeaderFilterCenter>center").html(startDate.toLocaleDateString() + " - " + endDate.toLocaleDateString());
+					getJSONData(10000000, convertDate(startDate), convertDate(endDate));
+				});
+
+				$("#next_week").click(function(){
+					endDate = new Date(endDate + week);
+					startDate = new Date(startDate + week);
+					console.log("Next week button clicked, endDate: "+ endDate + " startDate: " + startDate);
+					$(".HeaderFilterCenter>center").html(startDate.toLocaleDateString() + " - " + endDate.toLocaleDateString());
+					getJSONData(10000000, convertDate(startDate), convertDate(endDate));
+				});
 
 			}
 
@@ -76,16 +95,12 @@
 		<div id="main" data-role="page">
 			<header data-role="header" data-position="fixed">
 				<div class="HeaderFilter">
-				<div class="HeaderFilterLeft"><a href="index.html" data-role="button" data-icon="arrow-l">&nbsp;</a></div>
-				<div class="HeaderFilterInterval">
-					<select name="filter-interval" id="filter-interval" data-icon="grid">
-						<option value="7days">7 days</option>
-						<option value="10days">10 days</option>
-						<option value="15days">15 days</option>
-						<option value="30days">30 days</option>
-					</select>
+				<div class="HeaderFilterLeft"><a href="#" data-role="button" data-icon="arrow-l" id="previous_week">Previous week</a></div>
+				<div class="HeaderFilterCenter">
+					<center>Mendor Webapp</center>
+					
 				</div>
-				<div class="HeaderFilterRight"><a href="index.html" data-role="button" data-icon="arrow-r" data-iconpos="right">&nbsp;</a></div>
+				<div class="HeaderFilterRight"><a href="index.html" data-role="button" data-icon="arrow-r" data-iconpos="right" id="next_week">Next week</a></div>
 				</div>
 			</header>
 			<div class="content" data-role="content">

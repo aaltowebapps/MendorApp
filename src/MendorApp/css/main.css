@@ -1,0 +1,49 @@
+.HeaderFilter
+{
+	width: 100%
+}
+.HeaderFilterLeft
+{
+	float: left;
+	width: 20%
+}
+.HeaderFilterInterval
+{
+	float: left;
+	margin-top: .5em;
+	width: 60%
+}
+.HeaderFilterRight
+{
+	float: right;
+	width: 20%
+}
+
+.FooterFilter
+{
+	width: 100%
+}
+.FooterFilterMeals
+{
+	float: left;
+	margin-left: .1em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	width: 33%
+}
+.FooterFilterHours
+{
+	float: left;
+	margin-left: .1em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	width: 33%
+}
+.FooterFilterAlert
+{
+	float: left;
+	margin-left: .1em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+	width: 33%
+}

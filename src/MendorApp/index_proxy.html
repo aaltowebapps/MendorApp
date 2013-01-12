@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mendor App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
+		<link rel="stylesheet" href="css/main.css">
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="scripts.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+		
+		<script>
+
+			function convertDate(date){
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var day = date.getDate();
+				return year + '/' + month + '/' + day + '%20' + '00:00:00';
+			}
+
+			function getJSONData(person, startDate, endDate){
+				var apiCall = 'http://devweb.mendor.com/core/person/' + person + '/pairedmeasurements?startdate=' + startDate + '&enddate=' + endDate +'&filter=All';
+				var url = 'ba-simple-proxy.php?url=' + encodeURIComponent(apiCall);
+				// Example JSON call
+				// http://devweb.mendor.com/core/person/10000000/pairedmeasurements?startdate=2011/10/07%2012:00:00&enddate=2011/11/04%2011:59:59&filter=All
+				console.log(url);
+				$.ajax(url,
+			 		{
+						success: function(result) {
+							console.log(result);
+							parseDataFromJSON(result.contents);
+						},
+					});
+			}
+
+			function parseDataFromJSON(json){
+				json.MeasurementDays.forEach(function(measurement){
+					measurement.Measurements.forEach(function(singleMeasurement){
+						console.log(singleMeasurement);
+						if(singleMeasurement.PairedMeasurement != null){
+							// this is how you can get data easily, but probably not the "right" way to render these...
+							var html = '<li data-role="list-divider" role="heading">Measurement pair</li> \
+							<li data-theme="b">' + singleMeasurement.Timestamp.toLocaleString() + " : " + singleMeasurement.Value + '<br>'
+							+ singleMeasurement.PairedMeasurement.Timestamp.toLocaleString() + " : " + singleMeasurement.PairedMeasurement.Value + '</p></li>';
+							console.log("Second measurement");
+							
+						}
+						console.log(html);
+						$("#listview-content").append(html);
+						
+
+						
+					});
+				});
+				$("#listview-content").listview("refresh");
+
+			}
+			
+			window.onload = function() {
+				var week = 60*60*24*7*1000;
+				var currentDate = new Date();
+				var endDate = new Date();
+				var startDate = new Date(endDate - week);
+				var convertedEndDate = convertDate(endDate);
+				var convertedStartDate = convertDate(startDate);
+				console.log(convertedEndDate);
+				console.log(convertedStartDate);
+				getJSONData(10000000, convertedStartDate, convertedEndDate);
+				getJSONData(10000000, '2011/10/07%2012:00:00', '2011/11/04%2011:59:59'); // just to show some data on screen
+
+				$(".HeaderFilterCenter>center").html(startDate.toLocaleDateString() + " - " + endDate.toLocaleDateString());
+				$("#previous_week").click(function(){
+					endDate = new Date(endDate - week);
+					startDate = new Date(startDate - week);
+					console.log("Previous week button clicked, endDate: "+ endDate + " startDate: " + startDate);
+					$(".HeaderFilterCenter>center").html(startDate.toLocaleDateString() + " - " + endDate.toLocaleDateString());
+					getJSONData(10000000, convertDate(startDate), convertDate(endDate));
+				});
+
+				$("#next_week").click(function(){
+					endDate = new Date(endDate + week);
+					startDate = new Date(startDate + week);
+					console.log("Next week button clicked, endDate: "+ endDate + " startDate: " + startDate);
+					$(".HeaderFilterCenter>center").html(startDate.toLocaleDateString() + " - " + endDate.toLocaleDateString());
+					getJSONData(10000000, convertDate(startDate), convertDate(endDate));
+				});
+
+			}
+
+
+
+		</script>
+
+	</head>
+	<body>
+		<div id="main" data-role="page">
+			<header data-role="header" data-position="fixed">
+				<div class="HeaderFilter">
+				<div class="HeaderFilterLeft"><a href="#" data-role="button" data-icon="arrow-l" id="previous_week">Previous week</a></div>
+				<div class="HeaderFilterCenter">
+					<center>Mendor Webapp</center>
+					
+				</div>
+				<div class="HeaderFilterRight"><a href="index.html" data-role="button" data-icon="arrow-r" data-iconpos="right" id="next_week">Next week</a></div>
+				</div>
+			</header>
+			<div class="content" data-role="content">
+				<ul id="listview-content" data-role="listview" data-divider-theme="a" data-inset="false">
+					<li>test</li>
+					<li>test</li>
+				</ul>
+			</div>
+			<footer data-role="footer" data-position="fixed">
+				<div class="FooterFilter">
+				<div class="FooterFilterMeals">
+					<select data-native-menu="false" name="filter-meals" id="filter-meals" data-icon="gear">
+						<option data-placeholder="true">Meals</option>
+						<option value="breakfast">Breakfast</option>
+						<option value="lunch">Lunch</option>
+						<option value="dinner">Dinner</option>
+					</select>
+				</div>
+				<div class="FooterFilterHours">
+					<select data-native-menu="false" name="filter-hours" id="filter-hours" data-icon="grid">
+						<option data-placeholder="true">Hours</option>
+						<option value="morning">Morning</option>
+						<option value="afternoon">Afternoon</option>
+						<option value="evening">Evening</option>
+					</select>
+				</div>
+				<div class="FooterFilterAlert">
+					<select data-native-menu="false" name="filter-alert" id="filter-alert" data-icon="alert">
+						<option data-placeholder="true">Alert</option>
+						<option value="belowlimit">Below limit</option>
+						<option value="abovelimit">Above limit</option>
+						<option value="bothlimit">Both</option>
+					</select>
+				</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
